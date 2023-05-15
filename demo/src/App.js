@@ -2,20 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import  { useState } from 'react';
 import Axios from 'axios'
+import SignUp from './Components/SignUp';
+import SignIn from './Components/SignIn';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 function App() {
-  const [number,setNumber]=useState()
-  const [ans,setAns]=useState()
-  function sendNumber(){
-Axios.post('http://localhost:3002/getUsers',{
 
-}).then((resp)=>{console.log(resp.data[0].firstName)}).catch((err)=>{console.log(err)})
-  }
   return (
-    <div className='App'>
-      <input onChange={(e)=>{setNumber(e.target.value)}} />
-    <button onClick={sendNumber}>Send</button>
-    <h1>{ans}</h1>
+    <Router>
+ <div className='App'>
+<Routes>
+  <Route exact path='/' element={<SignIn/>}/>
+  <Route  path='/signup' element={<SignUp/>}/>
+</Routes>
     </div>
+    </Router>
+   
   );
 }
 

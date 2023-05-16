@@ -7,7 +7,9 @@ export default function SingUp() {
     const[email,setEmail]=useState();
     const[password,setPassword]=useState();
 
+     // Function to handle form submission
     const handleSubmit=()=>{
+       // Make a POST request to the server with user data
 Axios.post('http://localhost:3002/signUp',{
   firstName:firstName,
   lastName:lastName,

@@ -1,13 +1,13 @@
-const e = require('express')
+const e = require('express') // Importing Express module
 const express =require('express')
-const app =express()
+const app =express() // Creating Express app
 const cors=require('cors')
 const bcrypt=require('bcrypt')
 const saltRounds=10
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-const mysql=require('mysql')
+app.use(cors()); // Enable CORS
+app.use(express.urlencoded({ extended: true }));// Parse URL-encoded bodies
+app.use(express.json());// Parse JSON bodies
+const mysql=require('mysql')// Importing MySQL module
 app.listen(3002,()=>{
 console.log( 'Server running at port 3002')
 })
@@ -33,9 +33,7 @@ db.query("INSERT INTO users(firstName,lastName,email,password) VALUES (?,?,?,?)"
     if(err){
         console.log(err)
     }
-    // if(result){
-    //     console.log('Sign Up succesful')
-    // }
+   
 }) 
 })
 
@@ -58,25 +56,3 @@ app.post('/signIn',(req,res)=>{
 
    
 
-
-// bcrypt.hash(password,saltRounds,(err,hash)=>{
-//     db.query('INSERT INTO users(firstName,lastName,email,password) VALUES (?,?,?,?)',[firstName,lastName,email,hash],(err,result)=>{
-//         if(result){
-//             console.log(err)
-//         }
-//         else(result){
-//                       console.log('Sign Up Successful')
-
-
-//         if(result){
-//             console.log(result)
-//             res.send(result)
-                   
-//         if(result){
-//             console.log(result)
-//             res.send(result)
-//                     }
-//     }) 
-// })
-
-// })

@@ -8,6 +8,7 @@ app.use(cors()); // Enable CORS
 app.use(express.urlencoded({ extended: true }));// Parse URL-encoded bodies
 app.use(express.json());// Parse JSON bodies
 const mysql=require('mysql')// Importing MySQL module
+
 app.listen(3002,()=>{
 console.log( 'Server running at port 3002')
 })
@@ -54,5 +55,28 @@ app.post('/signIn',(req,res)=>{
        
 })
 
-   
+app.post('/home', (req, res) => {
+    const  product_name = req.body. product_name;
+    const description = req.body.description;
+    const  price = req.body. price ;
+    const stock_quantity = req.body.stock_quantity;
+    // Assuming you have a 'products' table in your database
+    db.query(
+        'INSERT INTO products (product_name, description, price, stock_quantity) VALUES (?, ?, ?, ?)',
+        [product_name, description, price, stock_quantity],
+        (err, result) => {
+            if (result) {
+              console.log('successful');
+              res.send('successful');
+            }
+            if (err) {
+                      console.log(err);
+                       res.status(500).json({ message: 'An error occurred' });
+                       }
+            
+        })
 
+    })
+    
+
+   

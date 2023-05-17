@@ -79,7 +79,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const AddProducts = () => {
+const Products = () => {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [newProduct, setNewProduct] = useState({
@@ -227,4 +227,4 @@ const AddProducts = () => {
   );
 };
 
-export default AddProducts;
+export default Products;

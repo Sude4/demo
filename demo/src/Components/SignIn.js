@@ -14,7 +14,7 @@ export default function SignIn() {
     password: password 
   }).then(() => {
     // Redirect to Home page upon successful sign in
-    navigate('/home');
+    navigate('/addproducts');
   }).catch((error) => {
     console.error(error);
     // Handle sign-in error if needed

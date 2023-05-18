@@ -75,156 +75,201 @@
 // };
 
 // export default Home;
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { Link } from 'react-router-dom';
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [newProduct, setNewProduct] = useState({
-    product_name: '',
-    description: '',
-    price: 0,
-    stock_quantity: 0,
-  });
+// const Products = () => {
+//   const [products, setProducts] = useState([]);
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [newProduct, setNewProduct] = useState({
+//     product_name: '',
+//     description: '',
+//     price: 0,
+//     stock_quantity: 0,
+//   });
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+//   useEffect(() => {
+//     getProducts();
+//   }, []);
 
-  const getProducts = async () => {
-    try {
-      const response = await axios.get('/products');
-      setProducts(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+//   const getProducts = async () => {
+//     try {
+//       const response = await axios.get('/products');
+//       setProducts(response.data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
 
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get(`/products?search=${searchQuery}`);
-      setProducts(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+//   const handleSearch = async () => {
+//     try {
+//       const response = await axios.get(`/products?search=${searchQuery}`);
+//       setProducts(response.data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
 
-  const handleFilter = async (filterValue) => {
-    try {
-      const response = await axios.get(`/products?filter=${filterValue}`);
-      setProducts(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+//   const handleFilter = async (filterValue) => {
+//     try {
+//       const response = await axios.get(`/products?filter=${filterValue}`);
+//       setProducts(response.data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
 
-  const handleAddProduct = async () => {
-    try {
-      const response = await axios.post('/products', newProduct);
-      console.log(response.data); // Handle the response as needed
-      // Clear the form after successful submission
-      setNewProduct({
-        product_name: '',
-        description: '',
-        price: 0,
-        stock_quantity: 0,
-      });
-      // Refresh the product list
-      getProducts();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+//   const handleAddProduct = async () => {
+//     try {
+//       const response = await axios.post('/products', newProduct);
+//       console.log(response.data); // Handle the response as needed
+//       // Clear the form after successful submission
+//       setNewProduct({
+//         product_name: '',
+//         description: '',
+//         price: 0,
+//         stock_quantity: 0,
+//       });
+//       // Refresh the product list
+//       getProducts();
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
 
-  const handleChange = (e) => {
-    setNewProduct({
-      ...newProduct,
-      [e.target.name]: e.target.value,
-    });
-  };
+//   const handleChange = (e) => {
+//     setNewProduct({
+//       ...newProduct,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
 
-  return (
-    <div>
-      <header>
-        <h1>Hoş Geldiniz!</h1>
-        <div>
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Ara..."
-          />
-          <button onClick={handleSearch}>Ara</button>
-        </div>
-        <div>
-          <button onClick={() => handleFilter('filterValue1')}>
-            Filtre 1
-          </button>
-          <button onClick={() => handleFilter('filterValue2')}>
-            Filtre 2
-          </button>
-          {/* Add more filter buttons as needed */}
-        </div>
+//   return (
+//     <div>
+//       <header>
+//         <h1>Hoş Geldiniz!</h1>
+//         <div>
+//           <input
+//             type="text"
+//             value={searchQuery}
+//             onChange={(e) => setSearchQuery(e.target.value)}
+//             placeholder="Ara..."
+//           />
+//           <button onClick={handleSearch}>Ara</button>
+//         </div>
+//         <div>
+//           <button onClick={() => handleFilter('filterValue1')}>
+//             Filtre 1
+//           </button>
+//           <button onClick={() => handleFilter('filterValue2')}>
+//             Filtre 2
+//           </button>
+//           {/* Add more filter buttons as needed */}
+//         </div>
        
-      </header>
-      <h2>Ürünler</h2>
-      <ul>
-        {products.map((product) => (
-          <li key={product.product_id}>
-            <Link to={`/products/${product.product_id}`}>
-              {product.product_name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+//       </header>
+//       <h2>Ürünler</h2>
+//       <ul>
+//         {products.map((product) => (
+//           <li key={product.product_id}>
+//             <Link to={`/products/${product.product_id}`}>
+//               {product.product_name}
+//             </Link>
+//           </li>
+//         ))}
+//       </ul>
 
-      {/* Add Product Form */}
-      <h2>Add Product</h2>
-      <form>
-        <div>
-          <label>Product Name:</label>
-          <input
-            type="text"
-            name="product_name"
-            value={newProduct.product_name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Description:</label>
-                   <input
-            type="text"
-            name="description"
-            value={newProduct.description}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Price:</label>
-          <input
-            type="number"
-            name="price"
-            value={newProduct.price}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Stock Quantity:</label>
-          <input
-            type="number"
-            name="stock_quantity"
-            value={newProduct.stock_quantity}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="button" onClick={handleAddProduct}>
-          Add Product
-        </button>
-      </form>
-    </div>
-  );
-};
+//       {/* Add Product Form */}
+//       <h2>Add Product</h2>
+//       <form>
+//         <div>
+//           <label>Product Name:</label>
+//           <input
+//             type="text"
+//             name="product_name"
+//             value={newProduct.product_name}
+//             onChange={handleChange}
+//           />
+//         </div>
+//         <div>
+//           <label>Description:</label>
+//                    <input
+//             type="text"
+//             name="description"
+//             value={newProduct.description}
+//             onChange={handleChange}
+//           />
+//         </div>
+//         <div>
+//           <label>Price:</label>
+//           <input
+//             type="number"
+//             name="price"
+//             value={newProduct.price}
+//             onChange={handleChange}
+//           />
+//         </div>
+//         <div>
+//           <label>Stock Quantity:</label>
+//           <input
+//             type="number"
+//             name="stock_quantity"
+//             value={newProduct.stock_quantity}
+//             onChange={handleChange}
+//           />
+//         </div>
+//         <button type="button" onClick={handleAddProduct}>
+//           Add Product
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
 
-export default Products;
+// export default Products;
+// import React, { useEffect } from 'react'
+// import { useState } from 'react'
+// import axios from 'axios'
+// import { Link } from "react-router-dom";
+
+// const Products = () => {
+//   const [products,setProducts] = useState([])
+// useEffect(()=>{
+//   const fetchAllProducts = async()=>{
+//     try{
+// const res = await axios.post('http://localhost:3002/products')
+// setProducts(res.data);
+//     }catch(err){
+// console.log(err)
+//     }
+//   }
+//   fetchAllProducts()
+// },[])
+// console.log(products);
+  
+//   return (
+//     <div>
+//      <h1>products</h1>
+//      <div className='products'>
+//       {products.map((product) =>(
+//         <div key={product.id} className='product'>
+//          <h2>{product.product_name}</h2>
+//          <p>{product.description}</p>
+//          <span>${product.price}</span>
+//          <button className='delete'>delete</button>
+//          <button className='update'>update</button>
+//         </div>
+//       ))}
+      
+//      </div>
+//      <button> <Link to="/add" >add</Link> </button>
+//     </div> 
+//   )
+// }
+
+  
+
+
+// export default Products
+

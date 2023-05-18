@@ -58,52 +58,6 @@ app.get("/", (req, res) => {
     res.json("hello");
   });
 
-// app.post('/products', (req, res) => {
-//     const q = "SELECT * FROM products";
-//     // const  product_name = req.body. product_name;
-//     // const description = req.body.description;
-//     // const  price = req.body. price ;
-//     // const stock_quantity = req.body.stock_quantity;
-//     // Assuming you have a 'products' table in your database
-//     db.query(q, (err, data) => {
-//         if (err) {
-//           console.log(err);
-//           return res.json(err);
-//         }
-//         return res.json(data);
-//       });
-//         // 'INSERT INTO products (product_name, description, price, stock_quantity) VALUES (?, ?, ?, ?)',
-//         // [product_name, description, price, stock_quantity],
-//         // (err, result) => {
-//         //     if (result) {
-//         //       console.log('successful');
-//         //       res.send('successful');
-//         //     }
-//         //     if (err) {
-//         //               console.log(err);
-//         //                res.status(500).json({ message: 'An error occurred' });
-//         //                }
-            
-        
-
-//     })
-//     app.post('/products',(req,res)=>{
-//         const q = 'INSERT INTO products(product_name,description,price,stock_quantity) VALUES (?, ?, ?, ?)'
-//         const values = [
-//             req.body.product_name,
-//             req.body.description,
-//             req.body.price,
-//             req.body.stock_quantity,
-//           ];
-        
-//    const result= db.query(q,[values],(err,data)=>{
-//     if(err) return res.json(err)
-//     return res.json(data);
-//    })
-//    console.log(result,"result")
-//     })
-
-
 app.post('/products',(req,res)=>{
     console.log(req.body,"req.body")
     const product_name=req.body.product_name;

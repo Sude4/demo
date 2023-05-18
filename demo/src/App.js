@@ -6,10 +6,10 @@ import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Products from './Components/Products';
-import Home from './Components/Home';
+import Home from './Pages/Home';
 import Add from './Components/add';
 import Update from './Components/update';
-import "./style.css"
+import "./styles.css"
 function App() {
 
   return (

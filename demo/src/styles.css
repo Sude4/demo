@@ -1,4 +1,4 @@
-.App{
+/* .App{
     height: 100vh;
     padding: 0px 100px;
     display: flex;
@@ -21,4 +21,12 @@
     border: border;
     padding: 3px 6px;
     background-color: aquamarine;
+} */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }

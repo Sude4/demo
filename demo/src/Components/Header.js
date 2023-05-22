@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-blue-900">
-      <nav className="container mx-auto flex items-center justify-between py-4">
-        <a href="/" className="text-3xl font-bold text-white">My Website</a>
-        <div className="space-x-4">
-          <a href="/" className="text-white hover:text-blue-200 transition-colors duration-300">Home</a>
-          <a href="/about" className="text-white hover:text-blue-200 transition-colors duration-300">About</a>
-          <a href="/contact" className="text-white hover:text-blue-200 transition-colors duration-300">Contact</a>
+    <header className={`bg-pink-200 ${isScrolled ? 'shadow-lg' : ''}`}>
+      <nav className="bg-transparent max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <a href="#" className="text-white font-bold text-xl">Logo</a>
+            </div>
+            {/* Navigation Links */}
+            <div className="hidden md:block">
+              <ul className="ml-10 flex items-center space-x-4">
+                <li><a href="#" className="text-gray-800 hover:text-gray-900">Home</a></li>
+                <li><a href="#" className="text-gray-800 hover:text-gray-900">Products</a></li>
+                <li><a href="#" className="text-gray-800 hover:text-gray-900">About</a></li>
+                <li><a href="#" className="text-gray-800 hover:text-gray-900">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          {/* Mobile Menu Button */}
+          <div className="hidden md:block">
+            <a href="#" className="text-gray-800 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Login</a>
+            <a href="#" className="text-gray-800 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
+          </div>
         </div>
       </nav>
     </header>

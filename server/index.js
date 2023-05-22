@@ -78,6 +78,7 @@ app.post('/products',(req,res)=>{
     }) 
     })
 
+
     app.delete("/products/:id", (req, res) => {
         const productId = req.params.id;
         const q = " DELETE FROM products WHERE id = ? ";

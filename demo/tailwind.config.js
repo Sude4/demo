@@ -6,7 +6,13 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       black: '#000',
-      white: '#fff',
+      pinkyWhite: '#FBEAF5',
+      white: {
+        50: '#fdfdfd',   // Custom white shade 50
+        100: '#fbfbfb',  // Custom white shade 100
+        200: '#f9f9f9',  // Custom white shade 200
+        // Add more custom white shades as desired
+      },
       gray: {
         50: '#f9fafb',
         100: '#f3f4f6',

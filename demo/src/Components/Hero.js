@@ -10,7 +10,7 @@ function Hero() {
         <button className="flower-button">Love Yourself</button>
       </div>
       <div className="h-full py-2 pr-4 ml-8">
-        <img src={resim1} alt="Resim Açıklaması" className="w-full h-auto object-cover rounded-lg" />
+        <img src={resim1} alt="Resim Açıklaması" className="mx-auto" />
       </div>
     </div>
   </section>

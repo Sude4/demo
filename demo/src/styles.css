@@ -23,11 +23,11 @@ body {
   }
 }
 .flower-button {
-  background: linear-gradient(45deg, #fa5cab, #f132f1, #4f4fed); /* Replace with your desired gradient colors */
+  background: linear-gradient(45deg, #fbbbdb, #f6a8f6, #eea6dc); /* Replace with your desired gradient colors */
   color: #fff; /* Change to your desired text color */
   padding: 20px 30px;
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
   border: none;
   cursor: pointer;
   outline: none;
@@ -61,8 +61,9 @@ body {
 }
 
 .flower-button:hover {
-  background: linear-gradient(45deg, #FF69B4, #e979e9, #97d7ea); /* Replace with your desired hover gradient colors */
-  border-radius: 0 30px 0 30px; /* Adjust the values as per your desired shape */
+  background: linear-gradient(45deg, #fbbbdb, #f5baf5, #f0b8e2); /* Replace with your desired hover gradient colors */
+  border-radius: 0 50px 0 50px; /* Adjust the values as per your desired shape */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.1);
+  color: #540540;
 }

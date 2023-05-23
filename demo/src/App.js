@@ -12,6 +12,7 @@ import Update from './Components/update';
 import "./styles.css"
 import Reviews from './Components/Reviews';
 import Admin from './Pages/Admin';
+import ProductDetail from './Pages/ProductDetail';
 function App() {
 
   return (
@@ -20,12 +21,13 @@ function App() {
 <Routes>
   <Route exact path='/' element={<SignIn/>}/>
   <Route  path='/signup' element={<SignUp/>}/>
-  <Route  path='/product' element={<Product/>}/>
   <Route  path='/home' element={<Home/>}/>
   <Route  path='/update' element={<Update/>}/>
   <Route path='/add' element={<Add/>}></Route>
   <Route path='/reviews' element={<Reviews/>}></Route>
   <Route path='/admin' element={<Admin></Admin>}></Route>
+  <Route exact path="/products" component={Product} />
+    <Route path="/products/:id" component={ProductDetail} />
 
 </Routes>
     </div>

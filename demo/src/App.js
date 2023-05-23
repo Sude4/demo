@@ -11,6 +11,7 @@ import Add from './Components/add';
 import Update from './Components/update';
 import "./styles.css"
 import Reviews from './Components/Reviews';
+import Admin from './Pages/Admin';
 function App() {
 
   return (
@@ -24,6 +25,7 @@ function App() {
   <Route  path='/update' element={<Update/>}/>
   <Route path='/add' element={<Add/>}></Route>
   <Route path='/reviews' element={<Reviews/>}></Route>
+  <Route path='/admin' element={<Admin></Admin>}></Route>
 
 </Routes>
     </div>

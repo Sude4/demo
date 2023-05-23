@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,10 +39,14 @@ function Header() {
               </ul>
             </div>
           </div>
-          {/* Mobile Menu Button */}
+          {/* Admin Button */}
           <div className="hidden md:block">
-            <a href="#" className="text-gray-800 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Login</a>
-            <a href="#" className="text-gray-800 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
+            <Link
+              to="/admin"
+              className="text-gray-800 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Admin
+            </Link>
           </div>
         </div>
       </nav>

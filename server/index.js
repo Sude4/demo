@@ -78,16 +78,63 @@ app.post('/products',(req,res)=>{
     }) 
     })
 
+    app.post('/reviews',(req,res)=>{
+        console.log(req.body,"req.body")
+        const userId=req.body.userId;
+        const productId=req.body.productId;
+        const rating=req.body.rating;
+        const comments=req.body.comments;
+        
+        db.query("INSERT INTO reviews(userId,productId,rating,comments) VALUES (?,?,?,?)",[userId,productId,rating,comments],(err,result)=>{
+            
+            if(result){
+                console.log('Sign Up succesful')
+                res.send('Sign Up succesful')
+            }
+            if(err){
+                console.log(err)
+            }
+           
+        }) 
+        })
+        
+        app.get('/reviews', (req, res) => {
+            db.query('SELECT * FROM reviews', (err, result) => {
+              if (err) {
+                console.log(err);
+                return res.status(500).json({ error: 'Failed to fetch reviews' });
+              }
+              
+              console.log('Reviews fetched successfully');
+              res.json(result);
+            });
+          });
+          
+    
 
-    app.delete("/products/:id", (req, res) => {
-        const productId = req.params.id;
-        const q = " DELETE FROM products WHERE id = ? ";
+    app.get('/products', (req, res) => {
+        db.query('SELECT * FROM products', (err, result) => {
+          if (err) {
+            console.error('Error fetching products:', err);
+            return res.status(500).json({ error: 'Error fetching products' });
+          }
       
-        db.query(q, [productId], (err, data) => {
-          if (err) return res.send(err);
-          return res.json(data);
+          res.json(result);
         });
       });
+      
+
+
+
+    // app.delete("/products/:id", (req, res) => {
+    //     const productId = req.params.id;
+    //     const q = " DELETE FROM products WHERE id = ? ";
+      
+    //     db.query(q, [productId], (err, data) => {
+    //       if (err) return res.send(err);
+    //       return res.json(data);
+    //     });
+    //   });
  
 
    

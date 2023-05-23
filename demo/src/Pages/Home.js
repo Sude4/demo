@@ -2,7 +2,8 @@ import React from 'react'
 import Header from '../Components/Header'
 import Hero from '../Components/Hero'
 import ImageBanner from '../Components/ImageBanner'
-import Products from '../Components/Products'
+import Product from '../Components/Product'
+import Reviews from '../Components/Reviews'
 function Home() {
   return (
     <div>
@@ -15,7 +16,8 @@ function Home() {
         <div className="container mx-auto">
           <ImageBanner />
         </div>
-        {/* <Products></Products> */}
+        <Product></Product>
+        <Reviews></Reviews>
       </div>
       {/* Add other components or content */}
     </div>

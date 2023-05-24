@@ -135,17 +135,17 @@ app.post('/products',(req,res)=>{
     //       return res.json(data);
     //     });
     //   });
-app.delete('/products/:productId', (req, res) => {
-  const productId = req.params.productId;
-  //'SELECT * FROM `books` WHERE `author` = ?', ['David'],
-  db.query('DELETE  FROM `products` WHERE `product_name` = ?', [productId], (err, result) => {
-    if (err) {
-      console.error('Ürün silinirken hata oluştu:', err);
-      res.status(500).json({ error: 'Ürün silinirken hata oluştu' });
-    } else {
-      res.status(200).json({ message: 'Ürün başarıyla silindi' });
-    }
-  });
-});
+// app.delete('/products/:productId', (req, res) => {
+//   const productId = req.params.productId;
+//   //'SELECT * FROM `books` WHERE `author` = ?', ['David'],
+//   db.query('DELETE  FROM `products` WHERE `product_name` = ?', [productId], (err, result) => {
+//     if (err) {
+//       console.error('Ürün silinirken hata oluştu:', err);
+//       res.status(500).json({ error: 'Ürün silinirken hata oluştu' });
+//     } else {
+//       res.status(200).json({ message: 'Ürün başarıyla silindi' });
+//     }
+//   });
+// });
 
       

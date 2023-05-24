@@ -1,29 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Favorites() {
-  const [favoriteProducts, setFavoriteProducts] = useState([]);
-
-  const addToFavorites = (product) => {
-    setFavoriteProducts([...favoriteProducts, product]);
-  };
-
-  const removeFromFavorites = (productId) => {
-    const updatedFavorites = favoriteProducts.filter((product) => product.id !== productId);
-    setFavoriteProducts(updatedFavorites);
-  };
-
+function Favorites({ favorites }) {
   return (
-    <div>
-      <h2>Favori Ürünler</h2>
-      {favoriteProducts.length === 0 ? (
-        <p>Henüz favori ürününüz yok.</p>
+    <div className="container mx-auto py-8">
+      <h2 className="text-2xl font-bold mb-4">Favorites</h2>
+      {favorites && favorites.length === 0 ? (
+        <p>No favorite products yet.</p>
       ) : (
         <ul>
-          {favoriteProducts.map((product) => (
-            <li key={product.id}>
-              {product.name}
-              <button onClick={() => removeFromFavorites(product.id)}>Favorilerden Çıkar</button>
-            </li>
+          {favorites.map((product) => (
+            <li key={product.id}>{product.product_name}</li>
           ))}
         </ul>
       )}

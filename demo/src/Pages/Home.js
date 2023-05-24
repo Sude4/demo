@@ -12,17 +12,16 @@ function Home() {
       <Header />
       <Hero />
       <div className="hero-content">
-        {/* Content for the hero section */}
+        {/* Hero bölümü içeriği */}
       </div>
       <div>
         <div className="container mx-auto">
           <ImageBanner />
         </div>
-        <Product></Product>
-        <Reviews></Reviews>
-        <Favorites></Favorites> {/* Eklediğimiz favori bileşeni */}
+        <Product />
+        <Reviews />
+        {/* <Favorites /> */}
       </div>
-      {/* Add other components or content */}
     </div>
   );
 }

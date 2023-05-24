@@ -1,41 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-function Cart() {
-  const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
-  const fetchOrders = async () => {
-    try {
-      const response = await axios.get('http://localhost:3002/orders');
-      setOrders(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+function Cart({ orders }) {
   return (
-    <div>
-      <h1>Siparişler</h1>
-      {orders.map((order) => (
-        <div key={order.orderId}>
-          <h3>Sipariş Numarası: {order.orderId}</h3>
-          <p>Sipariş Tarihi: {order.orderDate}</p>
-          <p>Kullanıcı ID'si: {order.userId}</p>
-          <p>Toplam Tutar: {order.totalAmount}</p>
-          <h4>Ürünler</h4>
-          <ul>
-            {order.orderItems.map((item) => (
-              <li key={item.productId}>
-                Ürün Adı: {item.productName}, Miktar: {item.quantity}, Fiyat: {item.price}
-              </li>
-            ))}
-          </ul>
+    <div className="container mx-auto py-8">
+      <h2 className="text-2xl font-bold mb-4">Sepet</h2>
+      {orders.length === 0 ? (
+        <p>Sepetiniz boş.</p>
+      ) : (
+        <div>
+          {orders.map((order, index) => (
+            <div key={index} className="border p-4 mb-4">
+              <h3 className="text-lg font-bold">Sipariş Numarası: {order.orderNumber}</h3>
+              <p>Sipariş Tarihi: {order.orderDate}</p>
+              <p>Kullanıcı ID'si: {order.userId}</p>
+              <p>Toplam Tutar: ${order.totalAmount}</p>
+              <h4 className="mt-4 font-bold">Ürünler:</h4>
+              <ul>
+                {order.products.map((product) => (
+                  <li key={product.id}>{product.product_name}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 }

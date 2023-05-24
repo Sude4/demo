@@ -13,6 +13,7 @@ import "./styles.css"
 import Reviews from './Components/Reviews';
 import Admin from './Pages/Admin';
 import ProductDetail from './Pages/ProductDetail';
+import Cart from './Pages/Cart';
 function App() {
 
   return (
@@ -28,7 +29,9 @@ function App() {
   <Route path='/admin' element={<Admin></Admin>}></Route>
   <Route exact path="/products" component={Product} />
     <Route path="/products/:id" component={ProductDetail} />
-
+    <Route exact path="/products" element={<Product />} />
+          <Route path="/products/:id" component={ProductDetail} />
+          <Route path="/cart" element={<Cart />} />
 </Routes>
     </div>
     </Router>

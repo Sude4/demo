@@ -78,77 +78,76 @@ const Admin = () => {
 
   return (
     <div className="border border-gray-300 rounded p-4 bg-gradient-to-br from-pink-200 to-blue-300 mb-4">
-    <h2 className="text-xl mb-2">Add New Product</h2>
-    <form onSubmit={handleSubmit}>
-      {/* Product Name */}
-      <div className="flex flex-col mb-4">
-        <label htmlFor="productName" className="mb-2">
-          Product Name:
-        </label>
-        <input
-          type="text"
-          id="productName"
-          name="productName"
-          value={newProduct.productName}
-          onChange={handleChange}
-          className="border border-gray-300 p-2 rounded"
-        />
-      </div>
-  
-      {/* Description */}
-      <div className="flex flex-col mb-4">
-        <label htmlFor="description" className="mb-2">
-          Description:
-        </label>
-        <textarea
-          id="description"
-          name="description"
-          value={newProduct.description}
-          onChange={handleChange}
-          className="border border-gray-300 p-2 rounded"
-        />
-      </div>
-  
-      {/* Price */}
-      <div className="flex flex-col mb-4">
-        <label htmlFor="price" className="mb-2">
-          Price:
-        </label>
-        <input
-          type="number"
-          id="price"
-          name="price"
-          value={newProduct.price}
-          onChange={handleChange}
-          className="border border-gray-300 p-2 rounded"
-        />
-      </div>
-  
-      {/* Stock Quantity */}
-      <div className="flex flex-col mb-4">
-        <label htmlFor="stockQuantity" className="mb-2">
-          Stock Quantity:
-        </label>
-        <input
-          type="number"
-          id="stockQuantity"
-          name="stockQuantity"
-          value={newProduct.stockQuantity}
-          onChange={handleChange}
-          className="border border-gray-300 p-2 rounded"
-        />
-      </div>
-  
-      <button type="submit" className="bg-indigo-300 hover:bg-indigo-400 text-white px-4 py-2 rounded">
-        Add Product
-      </button>
-    </form>
-      
-<h2>Product List</h2>
-  {renderProducts()}
-  </div>
+      <h2 className="text-xl mb-2">Add New Product</h2>
+      <form onSubmit={handleSubmit}>
+        {/* Product Name */}
+        <div className="flex flex-col mb-4">
+          <label htmlFor="productName" className="mb-2">
+            Product Name:
+          </label>
+          <input
+            type="text"
+            id="productName"
+            name="product_name"
+            value={newProduct.product_name}
+            onChange={handleChange}
+            className="border border-gray-300 p-2 rounded"
+          />
+        </div>
 
-);
+        {/* Description */}
+        <div className="flex flex-col mb-4">
+          <label htmlFor="description" className="mb-2">
+            Description:
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            value={newProduct.description}
+            onChange={handleChange}
+            className="border border-gray-300 p-2 rounded"
+          />
+        </div>
+
+        {/* Price */}
+        <div className="flex flex-col mb-4">
+          <label htmlFor="price" className="mb-2">
+            Price:
+          </label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={newProduct.price}
+            onChange={handleChange}
+            className="border border-gray-300 p-2 rounded"
+          />
+        </div>
+
+        {/* Stock Quantity */}
+        <div className="flex flex-col mb-4">
+          <label htmlFor="stockQuantity" className="mb-2">
+            Stock Quantity:
+          </label>
+          <input
+            type="number"
+            id="stockQuantity"
+            name="stock_quantity"
+            value={newProduct.stock_quantity}
+            onChange={handleChange}
+            className="border border-gray-300 p-2 rounded"
+          />
+        </div>
+
+        <button type="submit" className="bg-indigo-300 hover:bg-indigo-400 text-white px-4 py-2 rounded">
+          Add Product
+        </button>
+      </form>
+
+      <h2>Product List</h2>
+      {renderProducts()}
+    </div>
+  );
 };
 
 export default Admin;

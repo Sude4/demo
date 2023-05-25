@@ -77,7 +77,7 @@ const Admin = () => {
   };
 
   return (
-    <div className="border border-gray-300 rounded p-4 bg-gradient-to-br from-pink-200 to-blue-300 mb-4">
+    <div className="border border-gray-300 rounded p-4 bg-gradient-to-br from-blue-50 to-blue-300 mb-4">
       <h2 className="text-xl mb-2">Add New Product</h2>
       <form onSubmit={handleSubmit}>
         {/* Product Name */}

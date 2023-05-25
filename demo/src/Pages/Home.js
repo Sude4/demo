@@ -11,16 +11,14 @@ function Home() {
     <div>
       <Header />
       <Hero />
-      <div className="hero-content">
-        {/* Hero bölümü içeriği */}
-      </div>
+   
       <div>
         <div className="container mx-auto">
           <ImageBanner />
         </div>
         <Product />
         <Reviews />
-        {/* <Favorites /> */}
+    
       </div>
     </div>
   );

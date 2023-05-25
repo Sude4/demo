@@ -32,7 +32,7 @@ navigate("/home")
 
   return (
     <div className='form'>
-      <h1>Add new Book</h1>
+      <h1>Add new Product</h1>
       <input type='text' placeholder='product_name'onChange={handleChange} name='product_name'></input>
       <input type='text' placeholder='description' onChange={handleChange} name='description'></input>
       <input type='number' placeholder='price'     onChange={handleChange} name='price'></input>

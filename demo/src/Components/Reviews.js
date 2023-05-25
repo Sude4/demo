@@ -43,53 +43,16 @@ const Reviews = () => {
       console.error('Review eklenirken hata oluştu:', error);
     }
   };
-
+//   yeni ürün eklenebiliyor  hepsini veritabanına kaydediyor
   return (
     <div className="flex justify-center">
-      {/* <div className="mt-8">
-        <h2>Add New Review</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="userId"
-            placeholder="User ID"
-            value={newReview.userId}
-            onChange={handleChange}
-            className="mb-2"
-          />
-          <input
-            type="text"
-            name="productId"
-            placeholder="Product ID"
-            value={newReview.productId}
-            onChange={handleChange}
-            className="mb-2"
-          />
-          <input
-            type="text"
-            name="rating"
-            placeholder="Rating"
-            value={newReview.rating}
-            onChange={handleChange}
-            className="mb-2"
-          />
-          <input
-            type="text"
-            name="comments"
-            placeholder="Comments"
-            value={newReview.comments}
-            onChange={handleChange}
-            className="mb-2"
-          />
-          <button type="submit">Add Review</button>
-        </form>
-      </div> */}
+
 
       <div className="grid grid-cols-5 gap-4 mt-8">
         {reviews.map((review, index) => (
           <div
             key={review.id}
-            className={`bg-yellow-100 rounded p-4 ${
+            className={`bg-pink-100 rounded p-4 ${
               index === 0 ? 'self-start' : 'self-center'
             }`}
           >

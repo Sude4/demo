@@ -43,10 +43,10 @@ const Reviews = () => {
       console.error('Review eklenirken hata oluştu:', error);
     }
   };
-//   yeni ürün eklenebiliyor  hepsini veritabanına kaydediyor
+
   return (
     <div className="flex justify-center">
-
+  
 
       <div className="grid grid-cols-5 gap-4 mt-8">
         {reviews.map((review, index) => (
